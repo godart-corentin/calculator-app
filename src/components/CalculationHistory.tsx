@@ -1,3 +1,6 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { History } from "../types/history";
 
 type CalculationHistoryProps = {
@@ -13,7 +16,12 @@ export const CalculationHistory = ({ history }: CalculationHistoryProps) => {
             {item.calculation}
           </p>
           <p className="self-end text-gray-700 dark:text-gray-400">
-            {item.result}
+            {typeof item.result !== "number" &&
+            typeof item.result !== undefined ? (
+              <FontAwesomeIcon icon={item.result as IconProp} />
+            ) : (
+              item.result
+            )}
           </p>
         </div>
       ))}

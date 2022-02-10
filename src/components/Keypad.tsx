@@ -14,7 +14,7 @@ export const Keypad = ({ onClick }: KeypadProps) => {
         value="/"
         icon="divide"
         onKeyClick={onClick}
-        className="bg-gray-300 text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-gray-300 text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
       />
       <Key value="7" onKeyClick={onClick} />
       <Key value="8" onKeyClick={onClick} />
@@ -23,7 +23,7 @@ export const Keypad = ({ onClick }: KeypadProps) => {
         value="x"
         icon="multiply"
         onKeyClick={onClick}
-        className="bg-gray-300 text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-gray-300 text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
       />
       <Key value="4" onKeyClick={onClick} />
       <Key value="5" onKeyClick={onClick} />
@@ -32,7 +32,7 @@ export const Keypad = ({ onClick }: KeypadProps) => {
         value="-"
         icon="subtract"
         onKeyClick={onClick}
-        className="bg-gray-300 text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-gray-300 text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
       />
       <Key value="1" onKeyClick={onClick} />
       <Key value="2" onKeyClick={onClick} />
@@ -41,7 +41,7 @@ export const Keypad = ({ onClick }: KeypadProps) => {
         value="+"
         icon="plus"
         onKeyClick={onClick}
-        className="bg-gray-300 text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-gray-300 text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
       />
       <div></div>
       <Key value="0" onKeyClick={onClick} />
@@ -50,7 +50,7 @@ export const Keypad = ({ onClick }: KeypadProps) => {
         value="equals"
         icon="equals"
         onKeyClick={onClick}
-        className="bg-red-500 text-gray-100 hover:bg-red-400 dark:hover:bg-red-400"
+        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-red-500 text-gray-100 hover:bg-red-400 dark:hover:bg-red-400"
       />
     </div>
   );

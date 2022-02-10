@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+
 import { History } from "../types/history";
 import { CalculationHistory } from "./CalculationHistory";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type ResultProps = {
   calculation: string;
-  result: number | undefined;
+  result: number | IconProp | undefined;
   error: boolean;
   history: History;
 };
@@ -29,7 +32,11 @@ export const Screen = ({
             <p className="self-end text-red-500">ERROR</p>
           ) : (
             <p className="self-end text-gray-700 dark:text-gray-400">
-              {result}
+              {typeof result !== "number" && typeof result !== undefined ? (
+                <FontAwesomeIcon icon={result as IconProp} />
+              ) : (
+                result
+              )}
             </p>
           )}
         </div>

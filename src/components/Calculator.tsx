@@ -1,13 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+
 import { Keypad } from "./Keypad";
 import { Screen } from "./Screen";
-
 import { CompleteCalculation, History } from "../types/history";
+import { useTheme } from "../context/ThemeContext";
 
 export const Calculator = () => {
+  const { setTheme } = useTheme();
+
   const [history, setHistory] = useState<History>([]);
   const [calculation, setCalculation] = useState<string>("");
-  const [result, setResult] = useState<number>();
+  const [result, setResult] = useState<number | IconProp>();
   const [hasError, setHasError] = useState<boolean>(false);
   const [isEditable, setIsEditable] = useState<boolean>(true);
 
@@ -19,23 +23,30 @@ export const Calculator = () => {
   };
 
   /** Calculation  */
-  const handleCalculation = (onSuccess: (result: number) => void) => {
-    let formattedOperation = "";
-    for (const char of calculation) {
-      if (char === "x") {
-        formattedOperation += "*";
-      } else {
-        formattedOperation += char;
+  const handleCalculation = (
+    onSuccess: (result: number | IconProp) => void
+  ) => {
+    if (calculation === "713705") {
+      setTheme?.("light");
+      onSuccess("sun");
+    } else {
+      let formattedOperation = "";
+      for (const char of calculation) {
+        if (char === "x") {
+          formattedOperation += "*";
+        } else {
+          formattedOperation += char;
+        }
       }
-    }
-    /** Remarque: Tentative de recherche/création de fonction alternative à eval (sécurité) => échec car grosse perte de temps pour le projet */
-    try {
-      const res = parseFloat(eval(formattedOperation));
-      // Utilisation de la fonction toPrecision pour éviter les résultats du type: (0.1+0.2 = 0.3xxxxxxxxxxxx)
-      const parsedResult = parseFloat(res.toPrecision(10));
-      onSuccess(parsedResult);
-    } catch (err) {
-      setHasError(true);
+      /** Remarque: Tentative de recherche/création de fonction alternative à eval (sécurité) => échec car grosse perte de temps pour le projet */
+      try {
+        const res = parseFloat(eval(formattedOperation));
+        // Utilisation de la fonction toPrecision pour éviter les résultats du type: (0.1+0.2 = 0.3xxxxxxxxxxxx)
+        const parsedResult = parseFloat(res.toPrecision(10));
+        onSuccess(parsedResult);
+      } catch (err) {
+        setHasError(true);
+      }
     }
   };
 
@@ -88,6 +99,10 @@ export const Calculator = () => {
               addToHistory({ calculation, result });
               setIsEditable(false);
             });
+            break;
+          }
+          case "0": {
+            setCalculation((curr) => curr + "0");
             break;
           }
           case "1": {
