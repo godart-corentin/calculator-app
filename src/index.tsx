@@ -15,6 +15,8 @@ import {
   faHand,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { ThemeProvider } from "./context/ThemeContext";
+
 library.add(
   faSun,
   faMoon,
@@ -27,8 +29,8 @@ library.add(
 );
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ThemeProvider>
     <App />
-  </React.StrictMode>,
+  </ThemeProvider>,
   document.getElementById("root")
 );
