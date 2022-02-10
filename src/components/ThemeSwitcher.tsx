@@ -14,9 +14,9 @@ export const ThemeSwitcher = () => {
       className="absolute top-4 right-4 cursor-pointer"
     >
       {theme === "light" ? (
-        <FontAwesomeIcon icon="sun" />
+        <FontAwesomeIcon icon="sun" color="#0f172a" />
       ) : (
-        <FontAwesomeIcon icon="moon" />
+        <FontAwesomeIcon icon="moon" color="#f1f5f9" />
       )}
     </div>
   );
