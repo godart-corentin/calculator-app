@@ -13,6 +13,7 @@ import {
   faSubtract,
   faSun,
   faHand,
+  faEquals,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { ThemeProvider } from "./context/ThemeContext";
@@ -25,7 +26,8 @@ library.add(
   faMultiply,
   faSubtract,
   faPlus,
-  faHand
+  faHand,
+  faEquals
 );
 
 ReactDOM.render(
