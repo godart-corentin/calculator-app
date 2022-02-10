@@ -13,13 +13,15 @@ export const Key = ({ value, icon, className, onKeyClick }: KeyProps) => {
   };
 
   return (
-    <div
-      className={`flex h-12 w-12 cursor-pointer items-center justify-center rounded-full text-gray-800 hover:bg-gray-300 dark:text-gray-100 dark:hover:bg-gray-800 ${
-        className ? className : ""
-      }`}
-      onClick={onClick}
-    >
-      {icon ? <FontAwesomeIcon icon={icon} /> : value}
+    <div className="flex w-full items-center justify-center">
+      <div
+        className={`flex h-12 w-12 cursor-pointer items-center justify-center rounded-full text-gray-800 hover:bg-gray-300 dark:text-gray-100 dark:hover:bg-gray-800 ${
+          className ? className : ""
+        }`}
+        onClick={onClick}
+      >
+        {icon ? <FontAwesomeIcon icon={icon} /> : value}
+      </div>
     </div>
   );
 };

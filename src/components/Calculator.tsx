@@ -5,7 +5,6 @@ import { Result } from "./Result";
 export const Calculator = () => {
   const [operation, setOperation] = useState<string>("");
   const [result, setResult] = useState<number>();
-  const [isCalculated, setIsCalculated] = useState<boolean>(false);
 
   const calculate = () => {
     let formattedOperation = "";
@@ -16,22 +15,25 @@ export const Calculator = () => {
         formattedOperation += input;
       }
     }
+    /** TODO: Changer la fonction eval par une fonction custom (sécurité) */
     const res = eval(formattedOperation);
-    setIsCalculated(true);
     setResult(res);
+  };
+
+  const reset = () => {
+    setOperation("");
+    setResult(undefined);
   };
 
   const onClickKey = (key: string) => {
     if (key === "equals") {
       calculate();
     } else {
-      if (isCalculated) {
-        setOperation("");
-        setResult(undefined);
-        setIsCalculated(false);
-      }
       if (key === "backspace") {
         setOperation((op) => op.slice(0, -1));
+        setResult(undefined);
+      } else if (key === "AC") {
+        reset();
       } else {
         setOperation((op) => op + key);
       }
@@ -39,7 +41,7 @@ export const Calculator = () => {
   };
 
   return (
-    <div className="shadow-xl">
+    <div className="flex w-96 flex-col justify-center shadow-xl">
       <Result operation={operation} result={result} />
       <Keypad onClick={onClickKey} />
     </div>

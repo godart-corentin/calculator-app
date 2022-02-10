@@ -5,7 +5,7 @@ type ResultProps = {
 
 export const Result = ({ operation, result }: ResultProps) => {
   return (
-    <div className="flex h-28 w-full flex-col bg-gray-100 p-4 text-2xl dark:bg-gray-800">
+    <div className="flex h-36 w-full flex-col overflow-x-hidden bg-gray-100 p-4 text-2xl dark:bg-gray-800">
       <p className="mt-3 self-end text-gray-800 dark:text-gray-100">
         {operation}
       </p>

@@ -6,7 +6,7 @@ type KeypadProps = {
 
 export const Keypad = ({ onClick }: KeypadProps) => {
   return (
-    <div className="grid grid-cols-4 grid-rows-5 gap-4 bg-gray-200 p-4 dark:bg-gray-900">
+    <div className="grid w-full grid-cols-4 grid-rows-5 gap-4 bg-gray-200 p-4 dark:bg-gray-900">
       <Key value="AC" onKeyClick={onClick} />
       <Key value="backspace" icon="backspace" onKeyClick={onClick} />
       <Key value="%" onKeyClick={onClick} />
