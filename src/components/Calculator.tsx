@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Keypad } from "./Keypad";
 import { Screen } from "./Screen";
 
@@ -19,7 +19,7 @@ export const Calculator = () => {
   };
 
   /** Calculation  */
-  const handleCalculation = () => {
+  const handleCalculation = (onSuccess: (result: number) => void) => {
     let formattedOperation = "";
     for (const char of calculation) {
       if (char === "x") {
@@ -33,10 +33,7 @@ export const Calculator = () => {
       const res = parseFloat(eval(formattedOperation));
       // Utilisation de la fonction toPrecision pour éviter les résultats du type: (0.1+0.2 = 0.3xxxxxxxxxxxx)
       const parsedResult = parseFloat(res.toPrecision(10));
-      setResult(parsedResult);
-      setHasError(false);
-      addToHistory({ calculation, result: parsedResult });
-      setIsEditable(false);
+      onSuccess(parsedResult);
     } catch (err) {
       setHasError(true);
     }
@@ -55,7 +52,12 @@ export const Calculator = () => {
     } else {
       if (isEditable) {
         if (key === "equals") {
-          handleCalculation();
+          handleCalculation((result) => {
+            setResult(result);
+            setHasError(false);
+            addToHistory({ calculation, result });
+            setIsEditable(false);
+          });
         } else {
           if (key === "backspace") {
             setCalculation((curr) => curr.slice(0, -1));
@@ -67,6 +69,99 @@ export const Calculator = () => {
       }
     }
   };
+
+  /** On Key press (big switch) */
+  const onKeyPress = useCallback(
+    (e: KeyboardEvent) => {
+      let key = e.key;
+      if (isEditable) {
+        switch (key) {
+          case "Backspace": {
+            setCalculation((curr) => curr.slice(0, -1));
+            setResult(undefined);
+            break;
+          }
+          case "Enter": {
+            handleCalculation((result) => {
+              setResult(result);
+              setHasError(false);
+              addToHistory({ calculation, result });
+              setIsEditable(false);
+            });
+            break;
+          }
+          case "1": {
+            setCalculation((curr) => curr + "1");
+            break;
+          }
+          case "2": {
+            setCalculation((curr) => curr + "2");
+            break;
+          }
+          case "3": {
+            setCalculation((curr) => curr + "3");
+            break;
+          }
+          case "4": {
+            setCalculation((curr) => curr + "4");
+            break;
+          }
+          case "5": {
+            setCalculation((curr) => curr + "5");
+            break;
+          }
+          case "6": {
+            setCalculation((curr) => curr + "6");
+            break;
+          }
+          case "7": {
+            setCalculation((curr) => curr + "7");
+            break;
+          }
+          case "8": {
+            setCalculation((curr) => curr + "8");
+            break;
+          }
+          case "9": {
+            setCalculation((curr) => curr + "9");
+            break;
+          }
+          case "/": {
+            setCalculation((curr) => curr + "/");
+            break;
+          }
+          case "*": {
+            setCalculation((curr) => curr + "x");
+            break;
+          }
+          case "-": {
+            setCalculation((curr) => curr + "-");
+            break;
+          }
+          case "+": {
+            setCalculation((curr) => curr + "+");
+            break;
+          }
+          case ".": {
+            setCalculation((curr) => curr + ".");
+            break;
+          }
+          default: {
+            break;
+          }
+        }
+      }
+    },
+    [calculation]
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", onKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyPress);
+    };
+  }, [onKeyPress]);
 
   return (
     <div className="flex w-96 flex-col justify-center shadow-xl">
