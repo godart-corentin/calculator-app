@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+# Calculator App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This calculator app was made in 4 hours and 40mins.
 
-In the project directory, you can run:
+## Instructions
 
-### `npm start`
+### Task
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Create a single page application of a calculator using React.
+- If you don't know where to start, open the calculator app of your smartphone.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Must have
 
-### `npm test`
+We will pay attention to the following points when reviewing your code:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [x] It is possible to perform basic operations (`+` `-` `x` `/`).
+- [x] The calculator is well designed and user-friendly.
+- [x] The code is clean and readable.
 
-### `npm run build`
+### Nice to have
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For more points, feel free to pimp up the calculator. Here is a non-exhaustive list of features you could add:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [x] Show an history of the previous operations
+- [x] Add the possibility to use the numeric keys of your keyboard
+- [x] Add an undo/delete button
+- [x] Include an easter egg (use your creativity)
+- [x] Add a dark mode
+- [] Add a demo page
+- [] Perform more complex operations (square, square root, log, etc...)
+- [x] Make the app responsive
+- [] Include tests in your code
+- [] Add an authentication process before accessing the calculator
+- [] Handle multiple languages
+- Anything you think of !
+- etc ...
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Technologies
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React
+- Typescript
+- Tailwind CSS

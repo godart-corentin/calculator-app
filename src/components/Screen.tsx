@@ -20,12 +20,12 @@ export const Screen = ({
 }: ResultProps) => {
   const [showHistory, setShowHistory] = useState<boolean>(false);
   return (
-    <div className="relative h-36 w-full bg-gray-100 text-2xl dark:bg-gray-800">
+    <div className="relative h-56 w-full bg-gray-100 text-2xl dark:bg-gray-800">
       {showHistory ? (
         <CalculationHistory history={history} />
       ) : (
         <div className="flex h-full w-full flex-col justify-center overflow-x-hidden p-4">
-          <p className="mt-3 self-end text-gray-800 dark:text-gray-100">
+          <p className="mt-3 self-end text-4xl text-gray-800 dark:text-gray-100">
             {calculation}
           </p>
           {error ? (
