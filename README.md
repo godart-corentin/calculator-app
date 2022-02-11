@@ -3,6 +3,7 @@
 ## Description
 
 This calculator app was made in 4 hours and 40mins.
+The app can be visited [here](https://godart-corentin.github.io/calculator-app/).
 
 ## Instructions
 
@@ -28,7 +29,7 @@ For more points, feel free to pimp up the calculator. Here is a non-exhaustive l
 - [x] Add an undo/delete button
 - [x] Include an easter egg (use your creativity)
 - [x] Add a dark mode
-- [ ] Add a demo page
+- [x] Add a demo page
 - [ ] Perform more complex operations (square, square root, log, etc...)
 - [x] Make the app responsive
 - [ ] Include tests in your code
