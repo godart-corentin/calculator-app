@@ -23,12 +23,13 @@ export const Calculator = () => {
   };
 
   /** Calculation  */
-  const handleCalculation = (
-    onSuccess: (result: number | IconProp) => void
-  ) => {
+  const handleCalculation = () => {
     if (calculation === "713705") {
       setTheme?.("light");
-      onSuccess("sun");
+      setResult("sun");
+      setHasError(false);
+      addToHistory({ calculation, result: "sun" });
+      setIsEditable(false);
     } else {
       let formattedOperation = "";
       for (const char of calculation) {
@@ -43,7 +44,10 @@ export const Calculator = () => {
         const res = parseFloat(eval(formattedOperation));
         // Utilisation de la fonction toPrecision pour éviter les résultats du type: (0.1+0.2 = 0.3xxxxxxxxxxxx)
         const parsedResult = parseFloat(res.toPrecision(10));
-        onSuccess(parsedResult);
+        setResult(parsedResult);
+        setHasError(false);
+        addToHistory({ calculation, result: parsedResult });
+        setIsEditable(false);
       } catch (err) {
         setHasError(true);
       }
@@ -63,12 +67,7 @@ export const Calculator = () => {
     } else {
       if (isEditable) {
         if (key === "equals") {
-          handleCalculation((result) => {
-            setResult(result);
-            setHasError(false);
-            addToHistory({ calculation, result });
-            setIsEditable(false);
-          });
+          handleCalculation();
         } else {
           if (key === "backspace") {
             setCalculation((curr) => curr.slice(0, -1));
@@ -93,12 +92,7 @@ export const Calculator = () => {
             break;
           }
           case "Enter": {
-            handleCalculation((result) => {
-              setResult(result);
-              setHasError(false);
-              addToHistory({ calculation, result });
-              setIsEditable(false);
-            });
+            handleCalculation();
             break;
           }
           case "0": {
@@ -167,7 +161,7 @@ export const Calculator = () => {
         }
       }
     },
-    [calculation]
+    [calculation, isEditable]
   );
 
   useEffect(() => {
