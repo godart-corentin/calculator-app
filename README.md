@@ -28,12 +28,12 @@ For more points, feel free to pimp up the calculator. Here is a non-exhaustive l
 - [x] Add an undo/delete button
 - [x] Include an easter egg (use your creativity)
 - [x] Add a dark mode
-- [] Add a demo page
-- [] Perform more complex operations (square, square root, log, etc...)
+- [ ] Add a demo page
+- [ ] Perform more complex operations (square, square root, log, etc...)
 - [x] Make the app responsive
-- [] Include tests in your code
-- [] Add an authentication process before accessing the calculator
-- [] Handle multiple languages
+- [ ] Include tests in your code
+- [ ] Add an authentication process before accessing the calculator
+- [ ] Handle multiple languages
 - Anything you think of !
 - etc ...
 
